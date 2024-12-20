@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Temas</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Estilos generales */
+        body {
+            font-family: 'Poppins', Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            line-height: 1.6;
+            background-image: url('imgs/fondo.jpg');
+            /* Ruta a tu imagen de fondo */
+            background-size: cover;
+            /* Cubrir todo el fondo */
+            background-position: center;
+            /* Centrar la imagen */
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+        }
+
+        /* Encabezado */
+        header {
+            background-color: #fff;
+            /* Cambia el color de fondo del encabezado */
+            color: black;
+            padding: 1rem 2rem;
+            text-align: center;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+
+
+        .logo {
+            display: flex;
+            align-items: center;
+            /* Alinea verticalmente la imagen y el texto */
+            gap: 10px;
+            /* Espaciado entre la imagen y el texto */
+        }
+
+        .logo img {
+            max-width: 100px;
+            /* Ajusta el tamaño máximo de la imagen */
+            height: auto;
+            /* Mantén la proporción */
+        }
+
+        .logo-text-container {
+            display: flex;
+            flex-direction: column;
+            /* Asegura que el título y el subtítulo estén apilados */
+            justify-content: center;
+            /* Centra verticalmente los textos */
+            padding-left: 20px;
+            /* Mueve el texto hacia la derecha */
+            text-align: center;
+            /* Alinea el texto a la izquierda */
+        }
+
+        .logo-title {
+            font-size: 1.5rem;
+            /* Tamaño del título */
+            font-weight: bold;
+            /* Negrita para el título */
+        }
+
+        .logo-subtitle {
+            font-size: 1rem;
+            /* Tamaño del subtítulo */
+            font-weight: normal;
+            /* Subtítulo con peso normal */
+            line-height: 1.5;
+            /* Espaciado entre líneas */
+        }
+
+        /* Navegación */
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+        }
+
+        nav ul li {
+            display: inline-block;
+            /* Alinea los elementos horizontalmente */
+            margin: 0 10px;
+            /* Espacio entre elementos */
+        }
+       
+         nav ul li a {
+            color: black;
+            text-decoration: none;
+            font-size: 1.2rem;
+            font-weight: bold;
+            padding: 10px 15px;
+            /* Aumenta el padding para más área de clic */
+            border-radius: 5px;
+            /* Añade bordes redondeados */
+            transition: background-color 0.3s, color 0.3s;
+            /* Transición suave de color y fondo */
+        }
+
+        header nav ul li a:hover {
+            background-color: #388E3C;
+            /* Cambia el color de fondo al hacer hover */
+            color: #fff;
+            /* Cambia el color del texto al hacer hover */
+        }
+
+        /* Contenido principal */
+        main {
+            padding: 2rem 1rem;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        section {
+            margin-bottom: 2rem;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        section:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+        }
+
+        h2 {
+            font-size: 1.2rem;
+            margin-bottom: 0;
+            font-weight: bold; /* Negritas */
+    font-style: italic; /* Cursiva */
+        }
+
+        /* Estilos para secciones específicas */
+        #tema {
+            background-color: rgba(255, 193, 7, 0.8);
+            /* Color de fondo para la sección Tema */
+            background-image: url('path/to/tema-background.jpg');
+            /* Ruta a tu imagen de fondo */
+            background-size: cover;
+            /* Cubrir toda la sección */
+            background-position: center;
+            /* Centrar la imagen */
+            background-repeat: no-repeat;
+        }
+
+        #tema-title {
+            color: #333;
+            /* Color del título para contrastar con el fondo */
+        }
+
+        #explicacion {
+            background-color: rgb(119, 188, 234);
+            /* Color de fondo para la sección Explicación */
+            color: black;
+            /* Cambia el color del texto para contrastar */
+            background-image: url('path/to/explicacion-background.jpg');
+            /* Ruta a tu imagen de fondo */
+            background-size: cover;
+            /* Cubrir toda la sección */
+            background-position: center;
+            /* Centrar la imagen */
+            background-repeat: no-repeat;
+        }
+
+        #explicacion h2 {
+            color: #333;
+            /* Color del título para contrastar con el fondo */
+        }
+
+        #ejemplos {
+            background-color: #f4c3d3;
+            /* Color de fondo para la sección Ejemplos */
+            color: black;
+            /* Cambia el color del texto para contrastar */
+            background-image: url('path/to/ejemplos-background.jpg');
+            /* Ruta a tu imagen de fondo */
+            background-size: cover;
+            /* Cubrir toda la sección */
+            background-position: center;
+            /* Centrar la imagen */
+            background-repeat: no-repeat;
+        }
+
+        #ejemplos h2 {
+            color: #333;
+            /* Color del título para contrastar con el fondo */
+        }
+        .extra-section h2 {
+    color: #000; /* Cambia el color al que prefieras */
+    font-size: 1.5em; /* Ajusta el tamaño de la fuente */
+    margin-bottom: 10px; /* Espaciado debajo del título */
+}
+
+        .extra-section:nth-child(1) {
+    background-color: #78ffd6;
+}
+
+.extra-section:nth-child(2) {
+    background-color: #388E3C;
+}
+
+.extra-section:nth-child(3) {
+    background-color: #f4e4fc;
+}
+
+.extra-section:nth-child(4) {
+    background-color: #e8f5e9;
+}
+
+        /* Footer */
+        footer {
+            background-color: #004d73;
+            /* Color de fondo azul oscuro */
+            padding: 2rem 1rem;
+            /* Espaciado interno */
+            color: white;
+            /* Color del texto */
+            text-align: center;
+            /* Alineación del texto */
+            box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.2);
+            /* Sombra */
+            position: relative;
+            z-index: 1;
+        }
+
+        footer p {
+            margin: 0;
+            /* Elimina el margen */
+            font-size: 1.2rem;
+            /* Tamaño de fuente */
+            margin-bottom: 1rem;
+            /* Margen inferior */
+        }
+
+        /* Estilos para la sección de redes sociales en el pie de página */
+        /* Estilos para el pie de página */
+        footer {
+            background: linear-gradient(135deg, #007991, #78ffd6);
+            /* Fondo degradado */
+            padding: 2rem 1rem;
+            /* Espaciado interno */
+            color: white;
+            /* Color del texto */
+            text-align: center;
+            /* Alineación del texto */
+            box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.2);
+            /* Sombra */
+            position: relative;
+            z-index: 1;
+            border-top-left-radius: 50px;
+            /* Bordes redondeados */
+            border-top-right-radius: 50px;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        footer p {
+            margin: 0;
+            /* Elimina el margen */
+            font-size: 1.2rem;
+            /* Tamaño de fuente */
+            margin-bottom: 1rem;
+            /* Margen inferior */
+        }
+
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                padding: 1rem;
+            }
+
+            .logo {
+                margin-bottom: 1rem;
+            }
+
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            nav ul li {
+                margin: 10px 0;
+            }
+
+            main {
+                padding: 1rem;
+            }
+
+            section {
+                padding: 1.5rem;
+            }
+
+            h2 {
+                font-size: 2rem;
+            }
+
+
+            footer {
+                padding: 1rem;
+            }
+
+            footer p {
+                font-size: 1rem;
+            }
+
+            .instagram-icon {
+                width: 40px;
+                height: 40px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="logo">
+            <img src="imgs/logo.png" alt="Logo">
+            <img src="imgs/logo1.png" alt="Logo">
+
+        </div>
+        <div class="logo-text-container">
+            <span class="logo-title">El cognitivismo</span>
+            <span class="logo-subtitle">UT3_Proyecto_La_psicologia_cognitiva_Descartesianas_1PM13</span>
+        </div>
+        <nav>
+            <ul>
+                <li>
+                    <a href="">Temas</a>
+                    <ul>
+                        <li><a href="#" onclick="loadTopic('tema1')">Ciencia y Conocimiento Científico</a></li>
+                        <li><a href="#" onclick="loadTopic('tema2')">La Psicología como Ciencia</a></li>
+                        <li><a href="#" onclick="loadTopic('tema3')">Fundamentos y Métodos Científicos</a></li>
+                        <li><a href="#" onclick="loadTopic('tema4')">Validación y Consenso Científico</a></li>
+                    </ul>
+                </li>
+                <li><a href="index.html">Inicio</a></li>
+
+            </ul>
+
+        </nav>
+    </header>
+
+    <main>
+        <section id="tema">
+            <img id="tema-image" src="" alt="Imagen del tema" />
+        
+        </section>
+
+        <section id="explicacion">
+            <p id="explicacion-content">Explicación del tema.</p>
+        </section>
+
+        <section id="ejemplos">
+            <p id="ejemplos-content">Ejemplos relacionados con el tema.</p>
+        </section>
+
+    </main>
+
+    <footer>
+        <p> &copy; 2024 UT3_Proyecto_La_psicologia_cognitiva_Descartesianas_1PM13.</p>
+
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

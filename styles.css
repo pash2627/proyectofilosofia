@@ -1,0 +1,620 @@
+/* Estilos generales */
+body {
+    font-family: 'Poppins', Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f8ff;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* Encabezado */
+header {
+    background-color: #008cba;
+    color: white;
+    padding: 1rem 2rem;
+    text-align: center;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.logo {
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+/* Navegación */
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    /* Centra verticalmente los elementos */
+}
+
+nav ul li {
+    margin: 0 10px;
+    /* Reduzco el espacio entre los elementos del menú */
+    position: relative;
+    /* Añado posición relativa para submenús */
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 10px 15px;
+    /* Aumento el espacio de relleno para una mayor interacción */
+    transition: color 0.3s ease;
+    position: relative;
+    /* Establezco posición relativa */
+}
+nav ul li a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background-color: #2d6a4f;
+    /* Color de la barra subrayada */
+    transform: scaleX(0);
+    /* Empieza sin ancho */
+    transform-origin: bottom left;
+    transition: transform 0.3s ease;
+    /* Transición animada */
+}
+nav ul li a:hover {
+    color: #2d6a4f;
+    /* Cambio de color al pasar el ratón */
+}
+
+nav ul li a:hover::after {
+    transform: scaleX(1);
+    /* Anima la barra subrayada al pasar el ratón */
+}
+/* Submenús (si los tienes) */
+/* Submenú deslumbrante */
+nav ul ul {
+    position: absolute;
+    top: 110%; /* Espaciado elegante */
+    left: 0;
+    background: linear-gradient(135deg, #ff7eb3, #ff758c, #ffc1e3);
+    backdrop-filter: blur(20px) brightness(1.2) saturate(150%);
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-radius: 20px;
+    box-shadow: 0 20px 50px rgba(255, 105, 180, 0.6), inset 0 1px 2px rgba(255, 255, 255, 0.5);
+    padding: 20px 0;
+    display: none;
+    opacity: 0;
+    transform: translateY(-20px) scale(0.95);
+    transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+    z-index: 1000;
+    overflow: hidden;
+}
+
+/* Muestra el submenú con animación */
+nav ul li:hover > ul {
+    display: block;
+    opacity: 1;
+    transform: translateY(0) scale(1);
+}
+
+/* Estilo de enlaces del submenú */
+nav ul ul li a {
+    position: relative;
+    color: #ffffff;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 15px 30px;
+    margin: 10px 20px;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 15px;
+    background: linear-gradient(90deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
+    box-shadow: inset 0 -2px 5px rgba(255, 255, 255, 0.1), 0 4px 15px rgba(255, 100, 150, 0.5);
+    transition: all 0.4s ease, transform 0.4s ease;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+    overflow: hidden;
+}
+
+/* Hover con animación del enlace */
+nav ul ul li a:hover {
+    background: linear-gradient(90deg, #ff8fa8, #ff61a6);
+    color: #fff;
+    box-shadow: 0 8px 30px rgba(255, 100, 200, 0.8), inset 0 2px 8px rgba(255, 255, 255, 0.2);
+    transform: scale(1.1) rotate(1deg);
+}
+
+/* Partícula brillante al pasar el ratón */
+nav ul ul li a::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 400%;
+    height: 400%;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.15), transparent);
+    transform: translate(-50%, -50%) scale(0);
+    transition: transform 0.5s ease-in-out;
+    border-radius: 50%;
+    z-index: -1;
+}
+
+nav ul ul li a:hover::before {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 0.6;
+}
+
+/* Bordes brillantes animados */
+nav ul ul li a::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 2px solid transparent;
+    border-radius: 15px;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.1));
+    opacity: 0;
+    transform: scale(0.8);
+    transition: all 0.4s ease-in-out;
+}
+
+nav ul ul li a:hover::after {
+    opacity: 1;
+    transform: scale(1.1);
+    border-color: rgba(255, 255, 255, 0.5);
+}
+
+/* Submenú con animaciones de luz */
+nav ul ul {
+    animation: glowEffect 2s infinite alternate ease-in-out;
+}
+
+@keyframes glowEffect {
+    from {
+        box-shadow: 0 20px 50px rgba(255, 105, 180, 0.6), inset 0 1px 2px rgba(255, 255, 255, 0.5);
+    }
+    to {
+        box-shadow: 0 25px 60px rgba(255, 150, 200, 0.8), inset 0 1px 5px rgba(255, 255, 255, 0.6);
+    }
+}
+
+/* Movimiento flotante continuo */
+@keyframes float {
+    0% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+nav ul ul li a:hover {
+    animation: float 1s infinite ease-in-out;
+}
+
+/* Detalle adicional: iconos brillantes al lado de los textos */
+nav ul ul li a::before {
+    content: '✨'; /* Cambia a cualquier emoji o ícono */
+    font-size: 20px;
+    margin-right: 10px;
+    opacity: 0.8;
+    animation: shine 1.5s infinite alternate;
+}
+
+@keyframes shine {
+    from {
+        opacity: 0.5;
+        transform: scale(1);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1.2);
+    }
+}
+
+/* Secciones principales */
+main {
+    padding: 2rem 1rem;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+section {
+    margin-bottom: 2rem;
+    background-color: #ffffff;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+section:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+}
+
+h2 {
+    color: #008cba;
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+}
+
+
+
+/* Slider */
+.slider {
+    position: relative;
+    max-width: 100%;
+    margin: auto;
+    overflow: hidden;
+    border-radius: 12px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 2rem;
+}
+
+.slides {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+    overflow-x: hidden;
+}
+
+.slide {
+    min-width: 100%;
+    box-sizing: border-box;
+    text-align: center;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    margin: 0 1rem;
+}
+
+.slide img {
+    width: 100%;
+    height: auto;
+    /* Mantener la proporción */
+    border-radius: 12px;
+    transition: transform 0.3s ease;
+}
+
+.slide:hover img {
+    transform: scale(1.05);
+}
+
+.slide p {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-top: 1rem;
+    background-color: #008cba;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+    margin: 0;
+    border-radius: 0 0 8px 8px;
+    transition: background-color 0.3s ease;
+}
+
+.prev,
+.next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    width: 50px;
+    height: 50px;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    font-weight: bold;
+    font-size: 1.2rem;
+    border: none;
+    border-radius: 50%;
+    transition: background-color 0.3s ease;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform: translateY(-50%);
+}
+
+.prev:hover,
+.next:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.prev {
+    left: 10px;
+}
+
+.next {
+    right: 10px;
+}
+
+#temas {
+    text-align: center;
+}
+
+#descargable-link {
+    display: inline-block;
+    margin-top: 1rem;
+    padding: 0.5rem 1rem;
+    background-color: #008cba;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+#descargable-link:hover {
+    background-color: #005f73;
+}
+
+
+/* Estilos para el pie de página */
+footer {
+    text-align: center;
+    padding: 1.5rem 0;
+    background-color: #008cba;
+    color: white;
+    margin-top: 2rem;
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+}
+#tema-image {
+    max-width: 100%;    /* Limita el ancho de la imagen al 100% del contenedor */
+    max-height: 400px;  /* Limita la altura máxima a 400px (ajusta según tus necesidades) */
+    width: auto;        /* Mantiene la proporción de la imagen */
+    height: auto;       /* Mantiene la proporción de la imagen */
+    display: block;     /* Asegura que la imagen se comporta como un bloque (elimina márgenes extra) */
+    margin: 0 auto;     /* Centra la imagen si es más pequeña que el contenedor */
+}
+
+footer p {
+    font-size: 1.2rem;
+}
+
+/* Estilos para enlaces descargables */
+#descargable a {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #008cba;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+#descargable a:hover {
+    background-color: #005f8a;
+    transform: scale(1.05);
+}
+
+/* Media Queries */
+@media screen and (max-width: 768px) {
+
+    
+
+    .logo {
+        font-size: 1.5rem;
+    }
+
+    h2 {
+        font-size: 1.8rem;
+    }
+
+    .slides {
+        overflow-x: scroll;
+        scroll-snap-type: x mandatory;
+    }
+
+    .slide {
+        scroll-snap-align: start;
+        margin: 0 0.5rem;
+    }
+
+    .prev,
+    .next {
+        width: 40px;
+        height: 40px;
+        font-size: 1rem;
+    }
+}
+
+/* Estilos adicionales proporcionados */
+
+/* Slider */
+.slider {
+    position: relative;
+    max-width: 100%;
+    margin: auto;
+    overflow: hidden;
+    border-radius: 12px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 2rem;
+}
+
+.slides {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+    overflow-x: hidden;
+}
+
+.slide {
+    min-width: 100%;
+    box-sizing: border-box;
+    text-align: center;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    margin: 0 1rem;
+}
+
+.slide img {
+    width: 100%;
+    height: auto;
+    /* Mantener la proporción */
+    border-radius: 12px;
+    transition: transform 0.3s ease;
+}
+
+.slide:hover img {
+    transform: scale(1.05);
+}
+
+@keyframes neonColors {
+    0% {
+        text-shadow: 0 0 5px #ff0000, 0 0 10px #ff0000, 0 0 15px #ff0000, 0 0 20px #ff0000, 0 0 25px #ff0000, 0 0 30px #ff0000;
+    }
+
+    20% {
+        text-shadow: 0 0 5px #ff00ff, 0 0 10px #ff00ff, 0 0 15px #ff00ff, 0 0 20px #ff00ff, 0 0 25px #ff00ff, 0 0 30px #ff00ff;
+    }
+
+    40% {
+        text-shadow: 0 0 5px #0000ff, 0 0 10px #0000ff, 0 0 15px #0000ff, 0 0 20px #0000ff, 0 0 25px #0000ff, 0 0 30px #0000ff;
+    }
+
+    60% {
+        text-shadow: 0 0 5px #00ffff, 0 0 10px #00ffff, 0 0 15px #00ffff, 0 0 20px #00ffff, 0 0 25px #00ffff, 0 0 30px #00ffff;
+    }
+
+    80% {
+        text-shadow: 0 0 5px #00ff00, 0 0 10px #00ff00, 0 0 15px #00ff00, 0 0 20px #00ff00, 0 0 25px #00ff00, 0 0 30px #00ff00;
+    }
+
+    100% {
+        text-shadow: 0 0 5px #ffff00, 0 0 10px #ffff00, 0 0 15px #ffff00, 0 0 20px #ffff00, 0 0 25px #ffff00, 0 0 30px #ffff00;
+    }
+}
+
+@keyframes neonBoxShadow {
+    0% {
+        box-shadow: 0 0 5px #ff0000, 0 0 10px #ff0000, 0 0 15px #ff0000, 0 0 20px #ff0000, 0 0 25px #ff0000, 0 0 30px #ff0000;
+    }
+
+    20% {
+        box-shadow: 0 0 5px #ff00ff, 0 0 10px #ff00ff, 0 0 15px #ff00ff, 0 0 20px #ff00ff, 0 0 25px #ff00ff, 0 0 30px #ff00ff;
+    }
+
+    40% {
+        box-shadow: 0 0 5px #0000ff, 0 0 10px #0000ff, 0 0 15px #0000ff, 0 0 20px #0000ff, 0 0 25px #0000ff, 0 0 30px #0000ff;
+    }
+
+    60% {
+        box-shadow: 0 0 5px #00ffff, 0 0 10px #00ffff, 0 0 15px #00ffff, 0 0 20px #00ffff, 0 0 25px #00ffff, 0 0 30px #00ffff;
+    }
+
+    80% {
+        box-shadow: 0 0 5px #00ff00, 0 0 10px #00ff00, 0 0 15px #00ff00, 0 0 20px #00ff00, 0 0 25px #00ff00, 0 0 30px #00ff00;
+    }
+
+    100% {
+        box-shadow: 0 0 5px #ffff00, 0 0 10px #ffff00, 0 0 15px #ffff00, 0 0 20px #ffff00, 0 0 25px #ffff00, 0 0 30px #ffff00;
+    }
+}
+
+.slide p {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-top: 1rem;
+    background-color: #008cba;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+    margin: 0;
+    border-radius: 0 0 8px 8px;
+    transition: background-color 0.3s ease;
+}
+
+.prev,
+.next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    width: 50px;
+    height: 50px;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    font-weight: bold;
+    font-size: 1.2rem;
+    border: none;
+    border-radius: 50%;
+    transition: background-color 0.3s ease;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform: translateY(-50%);
+}
+
+.prev:hover,
+.next:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.prev {
+    left: 10px;
+}
+
+.next {
+    right: 10px;
+}
+
+/* Consulta de medios para dispositivos móviles */
+@media screen and (max-width: 768px) {
+    header {
+        flex-direction: column;
+        padding: 1rem;
+    }
+
+    .logo {
+        font-size: 1.5rem;
+    }
+
+    nav ul {
+        flex-direction: column;
+        margin-top: 1rem;
+    }
+
+    nav ul li {
+        margin: 10px 0;
+        text-align: center;
+    }
+
+    nav ul li a {
+        padding: 8px 12px;
+        font-size: 0.9rem;
+    }
+
+    main {
+        padding: 1rem;
+    }
+
+    section {
+        padding: 1.5rem;
+    }
+
+    h2 {
+        font-size: 2rem;
+    }
+
+    .slider {
+        margin-bottom: 1.5rem;
+    }
+
+    .slide p {
+        font-size: 1rem;
+    }
+
+    .prev,
+    .next {
+        width: 40px;
+        height: 40px;
+        font-size: 1rem;
+    }
+
+    
+}
